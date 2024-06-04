@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+#bottom-screen {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 #chasis-tv {
     background-color: grey;
     width: 80%;
@@ -22,11 +28,13 @@
     grid-template-columns: 4fr 1fr;
     grid-gap: 1em;
 }
-#remote{
+
+#remote {
     width: 60%;
     height: 70%;
     background-color: chocolate;
 }
+
 #remote-container {
     background-color: chartreuse;
     display: flex;
@@ -54,13 +62,25 @@
     flex-direction: column;
 }
 
+#tv-on-light {
+    background-color: crimson;
+    height: 3em;
+    width: 3em;
+}
+
+#tv-power-button {
+    background-color: blueviolet;
+    height: 3em;
+    width: 3em;
+}
 
 @media (max-width: 768px) {
     #container {
         grid-template-columns: 1fr;
         grid-template-rows: 2fr 1fr;
     }
-    #remote{
+
+    #remote {
         width: 20%;
         height: 70%;
         background-color: chocolate;
