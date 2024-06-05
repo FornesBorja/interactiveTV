@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -12,13 +13,16 @@
 .button {
   background-color: darkslategrey;
   color: antiquewhite;
-  box-shadow: 1em 0.5em 0.9em -0.1em rgba(0,0,0,0.3); 
+  box-shadow: 1em 0.5em 0.9em -0.1em rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
 }
-
+#channel-container{
+  height: 20%;
+  width: 33%;
+}
 #chasis-tv {
   background-color: grey;
   width: 80%;
@@ -28,7 +32,12 @@
   justify-content: center;
   flex-direction: column;
 }
-
+#circle{
+  background-color: antiquewhite;
+  height: 1em;
+  width: 1em;
+  border-radius: 50%;
+}
 #container {
   background-color: rgba(226, 226, 226, 1);
   height: 100vh;
@@ -37,13 +46,48 @@
   grid-template-columns: 4fr 1fr;
   grid-gap: 1em;
 }
+#date{
+  color: brown;
+  font-size: 0.3em;
+}
+#date-container{
+  height: 20%;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+}
+.off{
+  background-color: rgb(8, 3, 4);
 
+}
+.on{
+  background-color: greenyellow;
+}
+.laser{
+  background-color: rgb(255, 78, 47);
+}
+
+#logo {
+  height: 1.7em;
+  width: auto;
+}
+.open-sans {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.on-off{
+  width: 0.8em;
+  height:  0.8em;
+}
 #remote {
   width: 60%;
   height: 70%;
   background-color: grey;
   border: 2em solid grey;
-  box-shadow: 1em 0.5em 0.9em -0.1em rgba(0,0,0,0.5); 
+  box-shadow: 1em 0.5em 0.9em -0.1em rgba(0, 0, 0, 0.5);
   display: grid;
   grid-gap: 2em;
   grid-template-columns: repeat(3, 1fr);
@@ -60,12 +104,18 @@
   background-color: black;
   flex: 1 0 auto;
   width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
 }
 
 .screen-border {
   height: 2em;
   width: 100%;
   background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #television-container {
@@ -76,7 +126,6 @@
 }
 
 #tv-on-light {
-  background-color: rgb(8, 3, 4);
   height: 2em;
   width: 2em;
 }
@@ -85,6 +134,9 @@
   background-color: rgb(89, 85, 92);
   height: 2em;
   width: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
@@ -96,8 +148,8 @@
   #remote {
     width: 20%;
     height: 70%;
-    grid-gap: 0.2em;
-    border: 1.5em solid chocolate;
+    grid-gap: 0.3em;
+    border: 1.5em solid grey;
 
   }
 }

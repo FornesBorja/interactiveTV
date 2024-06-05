@@ -12,20 +12,32 @@
     <div id="container">
         <div id="television-container">
             <div id="chasis-tv">
-                <div class="screen-border"></div>
-                <div id="screen"></div>
+                <div class="screen-border">
+                    <img id=logo src="./imgs/logo-png.png" alt="Logo samsung">
+                </div>
+                <div id="screen">
+                    <div></div>
+                    <div id="date-container">
+                        <div id="date" class="open-sans"></div>
+                    </div>
+                    <div id="channel-container"></div>
+                </div>
                 <div id="bottom-screen" class="screen-border">
-                    <div id="tv-power-button"></div>
-                    <div id="tv-on-light"></div>
+                    <div id="tv-power-button">
+                        <img class=on-off src="./imgs/on.png" alt="On/Off button">
+                    </div>
+                    <div id="tv-on-light" class="light off" ></div>
                 </div>
             </div>
         </div>
-        <!-- REMOTE CODE -->
+
         <div id="remote-container">
             <div id="remote">
                 <div></div>
-                <div id="remote-on-ligth"></div>
-                <div id="remote-power-button" class="button"></div>
+                <div id="remote-on-ligth" class="light"></div>
+                <div id="remote-power-button" class="button">
+                    <img class=on-off src="./imgs/on.png" alt="On/Off button">
+                </div>
                 <div></div>
                 <div id="up-button" class="button">
                     <div>▲</div>
@@ -35,7 +47,7 @@
                     <div>◀</div>
                 </div>
                 <div id="center-button" class="button">
-                    <div></div>
+                    <div id="circle"></div>
                 </div>
                 <div id="right-button" class="button">▶</div>
                 <div></div>
@@ -72,7 +84,6 @@
                 </div>
             </div>
         </div>
-        <!-- END REMOTE CODE -->
     </div>
     <script src="./js/main.js"></script>
 </body>
