@@ -8,13 +8,17 @@
   align-items: center;
   justify-content: flex-end;
 }
+
 .button {
   background-color: darkslategrey;
   color: antiquewhite;
+  box-shadow: 1em 0.5em 0.9em -0.1em rgba(0,0,0,0.3); 
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%;
 }
+
 #chasis-tv {
   background-color: grey;
   width: 80%;
@@ -23,11 +27,10 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* border-radius: 2em; */
 }
 
 #container {
-  background-color: aquamarine;
+  background-color: rgba(226, 226, 226, 1);
   height: 100vh;
   width: 100vw;
   display: grid;
@@ -38,33 +41,34 @@
 #remote {
   width: 60%;
   height: 70%;
-  background-color: chocolate;
+  background-color: grey;
+  border: 2em solid grey;
+  box-shadow: 1em 0.5em 0.9em -0.1em rgba(0,0,0,0.5); 
   display: grid;
-  grid-gap: 1em;
+  grid-gap: 2em;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(7, 1fr);
 }
 
 #remote-container {
-  background-color: chartreuse;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 #screen {
-  background-color: blue;
+  background-color: black;
   flex: 1 0 auto;
   width: 100%;
 }
 
 .screen-border {
-  height: 3em;
+  height: 2em;
   width: 100%;
-  background-color: aquamarine;
+  background-color: gray;
 }
 
 #television-container {
-  background-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,15 +76,15 @@
 }
 
 #tv-on-light {
-  background-color: crimson;
-  height: 3em;
-  width: 3em;
+  background-color: rgb(8, 3, 4);
+  height: 2em;
+  width: 2em;
 }
 
 #tv-power-button {
-  background-color: blueviolet;
-  height: 3em;
-  width: 3em;
+  background-color: rgb(89, 85, 92);
+  height: 2em;
+  width: 2em;
 }
 
 @media (max-width: 768px) {
@@ -92,6 +96,8 @@
   #remote {
     width: 20%;
     height: 70%;
-    background-color: chocolate;
+    grid-gap: 0.2em;
+    border: 1.5em solid chocolate;
+
   }
 }
