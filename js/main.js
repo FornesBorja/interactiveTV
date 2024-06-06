@@ -32,7 +32,7 @@ const togglePower = () => {
         //If it has a channed saved goes to that channel in 3 seconds
         if (lastChannelIndex !== -1) {
             setTimeout(() => {
-                screen.style.backgroundImage = `url('https://FornesBorja.github.io/interactiveTV/imgs/channel${lastChannelIndex + 1}.gif')`;
+                screen.style.backgroundImage = `url('https://FornesBorja.github.io/interactiveTV/imgs/channel-${lastChannelIndex + 1}.gif')`;
                 showDateAndChannel();
             }, 3000);
         }
@@ -66,7 +66,7 @@ for (let i = 0; i < channelsArray.length; i++) {
     channelsArray[i].addEventListener("click", () => {
         if (is_on) {
             lastChannelIndex = i;
-            screen.style.backgroundImage = `url('https://FornesBorja.github.io/interactiveTV/imgs/channel${i + 1}.gif')`;
+            screen.style.backgroundImage = `url('https://FornesBorja.github.io/interactiveTV/imgs/channel-${i + 1}.gif')`;
             infrared();
             showChannel();
         }
