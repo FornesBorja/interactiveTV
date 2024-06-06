@@ -28,11 +28,11 @@ const togglePower = () => {
     is_on = !is_on;
     lightTV.classList.toggle("on");
     if (is_on) {
-        screen.style.backgroundImage = `url('../imgs/static.gif')`;
+        screen.style.backgroundImage = `url('https://FornesBorja.github.io/interactiveTV/imgs/static.gif')`;
         //If it has a channed saved goes to that channel in 3 seconds
         if (lastChannelIndex !== -1) {
             setTimeout(() => {
-                screen.style.backgroundImage = `url('../imgs/channel-${lastChannelIndex + 1}.gif')`;
+                screen.style.backgroundImage = `url('https://FornesBorja.github.io/interactiveTV/imgs/channel${lastChannelIndex + 1}.gif')`;
                 showDateAndChannel();
             }, 3000);
         }
