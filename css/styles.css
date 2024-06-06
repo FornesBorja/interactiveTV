@@ -73,6 +73,13 @@
   grid-template-columns: 4fr 1fr;
   grid-gap: 1em;
 }
+#container-volume-bar{
+  height: 100%;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
 
 #date {
   font-size: 2.5em;
@@ -190,7 +197,23 @@
   align-items: center;
   justify-content: center;
 }
-
+#volume{
+  background-color: rgb(0, 0, 0);
+  height: 19em;
+  width: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#volume-bar{
+  background-color: white;
+  height: 20em;
+  width: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
 .volume {
   background-color: rgb(65, 16, 16);
 }
@@ -213,5 +236,14 @@
   }
   #channel-container{
     font-size: 1em;
+  }
+  #volume{
+    height: 10em;
+    width: 1em;
+    
+  }
+  #volume-bar{
+    height:11em;
+    width: 2em;
   }
 }
