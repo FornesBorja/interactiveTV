@@ -66,7 +66,7 @@ for (let i = 0; i < channelsArray.length; i++) {
     channelsArray[i].addEventListener("click", () => {
         if (is_on) {
             lastChannelIndex = i;
-            screen.style.backgroundImage = `url('../imgs/channel-${i + 1}.gif')`;
+            screen.style.backgroundImage = `url('./imgs/channel-${i + 1}.gif')`;
             infrared();
             showChannel();
         }
