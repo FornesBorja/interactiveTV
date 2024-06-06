@@ -51,7 +51,7 @@ const showDate = () => {
 };
 const showChannel = () => {
     if (lastChannelIndex !== -1) {
-        channel_container.innerHTML = `Canal: ${lastChannelIndex + 1}`;
+        channel_container.innerHTML = `Channel: ${lastChannelIndex + 1}`;
         setTimeout(() => {
             channel_container.innerHTML = ` `;
         }, 3000);
