@@ -28,7 +28,7 @@ const changeChannel = (increment) => {
         } else if (lastChannelIndex >= channelsArray.length) {
             lastChannelIndex = 0;
         }
-        const newVideoSrc = `../videos/channel-${lastChannelIndex + 1}.mp4`;
+        const newVideoSrc = `https://github.com/FornesBorja/interactiveTV/blob/dev/videos/${lastChannelIndex+1}.mp4`;
         screen.src = newVideoSrc;
         screen.load();
         screen.play(); 
@@ -67,11 +67,11 @@ const togglePower = () => {
     is_on = !is_on;
     lightTV.classList.toggle("on");
     if (is_on) {
-        screen.src = '../videos/static.mp4';
+        screen.src = 'https://github.com/FornesBorja/interactiveTV/blob/dev/videos/static.mp4';
         screen.play();
         if (lastChannelIndex !== -1) {
             setTimeout(() => {
-                screen.src = `../videos/channel-${lastChannelIndex + 1}.mp4`;
+                screen.src = `https://github.com/FornesBorja/interactiveTV/blob/dev/videos/${lastChannelIndex+1}.mp4`;
                 screen.play();
                 showDateAndChannel();
             }, 3000);
@@ -109,7 +109,7 @@ for (let i = 0; i < channelsArray.length; i++) {
     channelsArray[i].addEventListener("click", () => {
         if (is_on) {
             lastChannelIndex = i;
-            screen.src = `../videos/channel-${i + 1}.mp4`;
+            screen.src = `https://github.com/FornesBorja/interactiveTV/blob/dev/videos/${i+1}.mp4`;
             screen.play();
             infrared();
             showChannel();
