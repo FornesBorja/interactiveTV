@@ -15,17 +15,22 @@
                 <div class="screen-border">
                     <img id=logo src="./imgs/logo-png.png" alt="Logo samsung">
                 </div>
-                <video id="screen" class="off">
-                    <div id="container-volume-bar">
-                        <div id="volume-bar">
-                            <div id="volume"></div>
+
+                <div id="main-screen">
+                    <video id="screen" class="off" width="100%" autoplay loop height="100%">
+                        <source id=screen-src src="" type="video/mp4">
+                    </video>
+                        <div id="container-volume-bar">
+                            <div id="volume-bar">
+                                <div id="volume"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div id="date-container">
-                        <div id="date" class="tiny5-regular"></div>
-                    </div>
-                    <div id="channel-container" class="tiny5-regular"></div>
-                </video>
+                        <div id="date-container">
+                            <div id="date" class="tiny5-regular"></div>
+                        </div>
+                        <div id="channel-container" class="tiny5-regular"></div>
+
+                </div>
                 <div id="bottom-screen" class="screen-border">
                     <div id="tv-power-button">
                         <img class=on-off src="./imgs/on.png" alt="On/Off button">

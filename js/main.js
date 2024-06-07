@@ -18,6 +18,7 @@ let lastChannelIndex = -1; //Last channel used
 let volumeLevel = 0; // Volume level (0 to 100)
 const channelMore = document.getElementById("channel-button-more");
 const channelLess = document.getElementById("channel-button-less");
+const screen_src = document.getElementById("screen-src");
 
 const changeChannel = (increment) => {
     if (is_on) {
@@ -27,8 +28,10 @@ const changeChannel = (increment) => {
         } else if (lastChannelIndex >= channelsArray.length) {
             lastChannelIndex = 0;
         }
-        screen.src = `https://FornesBorja.github.io/interactiveTV/video/channel-${lastChannelIndex + 1}.mp4`;
-        screen.play();
+        const newVideoSrc = `../videos/channel-${lastChannelIndex + 1}.mp4`;
+        screen.src = newVideoSrc;
+        screen.load();
+        screen.play(); 
         infrared();
         showChannel();
     }
@@ -64,12 +67,11 @@ const togglePower = () => {
     is_on = !is_on;
     lightTV.classList.toggle("on");
     if (is_on) {
-        screen.src = 'https://FornesBorja.github.io/interactiveTV/video/static.mp4';
+        screen.src = '../videos/static.mp4';
         screen.play();
-        // Si tiene un canal guardado, cambiar al canal en 3 segundos
         if (lastChannelIndex !== -1) {
             setTimeout(() => {
-                screen.src = `https://FornesBorja.github.io/interactiveTV/video/channel-${lastChannelIndex + 1}.mp4`;
+                screen.src = `../videos/channel-${lastChannelIndex + 1}.mp4`;
                 screen.play();
                 showDateAndChannel();
             }, 3000);
@@ -80,6 +82,7 @@ const togglePower = () => {
         screen.style.backgroundColor = "black";
     }
 };
+
 
 const showDate = () => {
     let date = new Date()
@@ -106,7 +109,7 @@ for (let i = 0; i < channelsArray.length; i++) {
     channelsArray[i].addEventListener("click", () => {
         if (is_on) {
             lastChannelIndex = i;
-            screen.src = `https://FornesBorja.github.io/interactiveTV/video/channel-${i + 1}.mp4`;
+            screen.src = `../videos/channel-${i + 1}.mp4`;
             screen.play();
             infrared();
             showChannel();
@@ -121,6 +124,7 @@ volume_up.addEventListener("click", () => {
             updateVolume();
         } else if (volumeLevel = 100) {
             volumeShow();
+            updateVolume();
         };
     }
 });
@@ -129,11 +133,12 @@ volume_down.addEventListener("click", () => {
     if (is_on) {
         if (volumeLevel > 0) {
             volumeLevel -= 10;
-            volumeShow();
             updateVolume();
         } else if (volumeLevel == 0) {
-            volumeShow();
+            updateVolume();
         };
+        volumeShow();
+
     }
 });
 
