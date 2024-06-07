@@ -27,7 +27,8 @@ const changeChannel = (increment) => {
         } else if (lastChannelIndex >= channelsArray.length) {
             lastChannelIndex = 0;
         }
-        screen.style.backgroundImage = `url('https://FornesBorja.github.io/interactiveTV/imgs/channel-${lastChannelIndex + 1}.gif')`;
+        screen.src = `https://FornesBorja.github.io/interactiveTV/videos/channel-${lastChannelIndex + 1}.mp4`;
+        screen.play();
         infrared();
         showChannel();
     }
@@ -53,6 +54,7 @@ const volumeShow = () => {
 }
 
 const updateVolume = () => {
+    screen.volume = volumeLevel / 100;
     volume_bar.style.height = volumeLevel + '%';
 };
 
@@ -62,17 +64,20 @@ const togglePower = () => {
     is_on = !is_on;
     lightTV.classList.toggle("on");
     if (is_on) {
-        screen.style.backgroundImage = `url('https://FornesBorja.github.io/interactiveTV/imgs/static.gif')`;
-        //If it has a channed saved goes to that channel in 3 seconds
+        screen.src = 'https://FornesBorja.github.io/interactiveTV/videos/static.mp4';
+        screen.play();
+        // Si tiene un canal guardado, cambiar al canal en 3 segundos
         if (lastChannelIndex !== -1) {
             setTimeout(() => {
-                screen.style.backgroundImage = `url('https://FornesBorja.github.io/interactiveTV/imgs/channel-${lastChannelIndex + 1}.gif')`;
+                screen.src = `https://FornesBorja.github.io/interactiveTV/videos/channel-${lastChannelIndex + 1}.mp4`;
+                screen.play();
                 showDateAndChannel();
             }, 3000);
         }
     } else {
-        screen.style.backgroundImage = ``;
-        screen.style.backgroundColor = `black`;
+        screen.pause();
+        screen.src = '';
+        screen.style.backgroundColor = "black";
     }
 };
 
@@ -101,7 +106,8 @@ for (let i = 0; i < channelsArray.length; i++) {
     channelsArray[i].addEventListener("click", () => {
         if (is_on) {
             lastChannelIndex = i;
-            screen.style.backgroundImage = `url('https://FornesBorja.github.io/interactiveTV/imgs/channel-${i + 1}.gif')`;
+            screen.src = `https://FornesBorja.github.io/interactiveTV/videos/channel-${i + 1}.mp4`;
+            screen.play();
             infrared();
             showChannel();
         }
