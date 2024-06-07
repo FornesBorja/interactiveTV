@@ -16,7 +16,22 @@ const info = document.getElementById("info");
 const channel_container = document.getElementById("channel-container");
 let lastChannelIndex = -1; //Last channel used
 let volumeLevel = 0; // Volume level (0 to 100)
+const channelMore = document.getElementById("channel-button-more");
+const channelLess = document.getElementById("channel-button-less");
 
+const changeChannel = (increment) => {
+    if (is_on) {
+        lastChannelIndex += increment;
+        if (lastChannelIndex < 0) {
+            lastChannelIndex = channelsArray.length - 1;
+        } else if (lastChannelIndex >= channelsArray.length) {
+            lastChannelIndex = 0;
+        }
+        screen.style.backgroundImage = `url('https://FornesBorja.github.io/interactiveTV/imgs/channel-${lastChannelIndex + 1}.gif')`;
+        infrared();
+        showChannel();
+    }
+};
 
 //Function to make the "led" shine
 const infrared = () => {
@@ -125,3 +140,5 @@ info.addEventListener("click", () => {
         infrared();
     }
 });
+channelMore.addEventListener("click", () => changeChannel(1));
+channelLess.addEventListener("click", () => changeChannel(-1));
