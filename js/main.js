@@ -6,11 +6,36 @@ const lightTV = document.getElementById("tv-on-light");
 const date_container = document.getElementById("date");
 const screen = document.getElementById("screen");
 const channels = document.getElementsByClassName("channel-button");
+const general_volumen = document.getElementById("volume-bar");
+const volume_up = document.getElementById("volume-button-up")
+const volume_down = document.getElementById("volume-button-down");
+const volume_bar = document.getElementById("volume");
 channelsArray = Array.from(channels);
 const tv_power = document.getElementById("tv-power-button");
 const info = document.getElementById("info");
 const channel_container = document.getElementById("channel-container");
 let lastChannelIndex = -1; //Last channel used
+let volumeLevel = 0; // Volume level (0 to 100)
+const channelMore = document.getElementById("channel-button-more");
+const channelLess = document.getElementById("channel-button-less");
+const screen_src = document.getElementById("screen-src");
+
+const changeChannel = (increment) => {
+    if (is_on) {
+        lastChannelIndex += increment;
+        if (lastChannelIndex < 0) {
+            lastChannelIndex = channelsArray.length - 1;
+        } else if (lastChannelIndex >= channelsArray.length) {
+            lastChannelIndex = 0;
+        }
+        const newVideoSrc = `../videos/channel-${lastChannelIndex + 1}.mp4`;
+        screen.src = newVideoSrc;
+        screen.load();
+        screen.play(); 
+        infrared();
+        showChannel();
+    }
+};
 
 //Function to make the "led" shine
 const infrared = () => {
@@ -22,25 +47,42 @@ const infrared = () => {
     }
 };
 
+const volumeShow = () => {
+    general_volumen.style.visibility = "visible";
+
+    setTimeout(() => {
+        general_volumen.style.visibility = "hidden";
+    }, 3000);
+
+}
+
+const updateVolume = () => {
+    screen.volume = volumeLevel / 100;
+    volume_bar.style.height = volumeLevel + '%';
+};
+
 //Switch on and off the TV
 const togglePower = () => {
     infrared();
     is_on = !is_on;
     lightTV.classList.toggle("on");
     if (is_on) {
-        screen.style.backgroundImage = `url('https://FornesBorja.github.io/interactiveTV/imgs/static.gif')`;
-        //If it has a channed saved goes to that channel in 3 seconds
+        screen.src = '../videos/static.mp4';
+        screen.play();
         if (lastChannelIndex !== -1) {
             setTimeout(() => {
-                screen.style.backgroundImage = `url('https://FornesBorja.github.io/interactiveTV/imgs/channel-${lastChannelIndex + 1}.gif')`;
+                screen.src = `../videos/channel-${lastChannelIndex + 1}.mp4`;
+                screen.play();
                 showDateAndChannel();
             }, 3000);
         }
     } else {
-        screen.style.backgroundImage = ``;
-        screen.style.backgroundColor = `black`;
+        screen.pause();
+        screen.src = '';
+        screen.style.backgroundColor = "black";
     }
 };
+
 
 const showDate = () => {
     let date = new Date()
@@ -49,6 +91,7 @@ const showDate = () => {
         date_container.innerHTML = ` `;
     }, 3000);
 };
+
 const showChannel = () => {
     if (lastChannelIndex !== -1) {
         channel_container.innerHTML = `Channel: ${lastChannelIndex + 1}`;
@@ -66,12 +109,38 @@ for (let i = 0; i < channelsArray.length; i++) {
     channelsArray[i].addEventListener("click", () => {
         if (is_on) {
             lastChannelIndex = i;
-            screen.style.backgroundImage = `url('https://FornesBorja.github.io/interactiveTV/imgs/channel-${i + 1}.gif')`;
+            screen.src = `../videos/channel-${i + 1}.mp4`;
+            screen.play();
             infrared();
             showChannel();
         }
     });
 }
+volume_up.addEventListener("click", () => {
+    if (is_on) {
+        if (volumeLevel < 100) {
+            volumeLevel += 10;
+            volumeShow();
+            updateVolume();
+        } else if (volumeLevel = 100) {
+            volumeShow();
+            updateVolume();
+        };
+    }
+});
+
+volume_down.addEventListener("click", () => {
+    if (is_on) {
+        if (volumeLevel > 0) {
+            volumeLevel -= 10;
+            updateVolume();
+        } else if (volumeLevel == 0) {
+            updateVolume();
+        };
+        volumeShow();
+
+    }
+});
 
 power.addEventListener("click", togglePower);
 tv_power.addEventListener("click", togglePower);
@@ -82,3 +151,5 @@ info.addEventListener("click", () => {
         infrared();
     }
 });
+channelMore.addEventListener("click", () => changeChannel(1));
+channelLess.addEventListener("click", () => changeChannel(-1));

@@ -6,6 +6,7 @@
 - <a href="#stack">Stack 📚</a>
 - <a href="#features">Features 👾</a>
 - <a href="#instalation">Instalation 💾</a>
+- <a href="#future-functionalities">Future functionalities 📺</a>
 - <a href="#live-deployment">Live Deployment 🌐</a>
 - <a href="#structure">Structure 🏗️</a>
 - <a href="#author">Author ✒️</a>
@@ -19,6 +20,9 @@
 ![Static Badge](https://img.shields.io/badge/HTML5-orange?style=flat-square) ![Static Badge](https://img.shields.io/badge/CSS3-blue?style=flat-square) ![Static Badge](https://img.shields.io/badge/JavaScript-yellow?style=flat-square)
 
 ## Features
+- **Volume buttons:** You can turn up and down the volume of the different channels.
+
+- **Last channel saved** The last channel will be saved for when you turn on the TV again. This does not apply when you refresh the page.
 
 - **Responsive Design:** The website adjusts to different screen sizes.
 
@@ -29,6 +33,9 @@ You can clone the repository at:
 ```sh
 git clone https://github.com/FornesBorja/interactiveTV.git
 ```
+
+## Future functionalities
+- **Save channels** The last channel will be saved even when you refresh.
 
 ## Live Deployment
 
