@@ -2,7 +2,6 @@
 
 ## Table of Contents 📂
 
-- <a href="#description">Description ⚓</a>
 - <a href="#stack">Stack 📚</a>
 - <a href="#features">Features 👾</a>
 - <a href="#instalation">Instalation 💾</a>
@@ -11,16 +10,15 @@
 - <a href="#structure">Structure 🏗️</a>
 - <a href="#author">Author ✒️</a>
 
-## Description
 
 <br>
 
 ## Stack
 
-![Static Badge](https://img.shields.io/badge/HTML5-orange?style=flat-square) ![Static Badge](https://img.shields.io/badge/CSS3-blue?style=flat-square) ![Static Badge](https://img.shields.io/badge/JavaScript-yellow?style=flat-square)
+![Static Badge](https://img.shields.io/badge/HTML5-orange?style=flat-square) ![Static Badge](https://img.shields.io/badge/CSS3-blue?style=flat-square)  ![Static Badge](https://img.shields.io/badge/Bootstrap-purple?style=flat-square) ![Static Badge](https://img.shields.io/badge/JavaScript-yellow?style=flat-square)
 
 ## Features
-- **Volume buttons:** You can turn up and down the volume of the different channels.
+- **Volume buttons:** You can turn up and down the volume (and it really does!).
 
 - **Last channel saved** The last channel will be saved for when you turn on the TV again. This does not apply when you refresh the page.
 
@@ -35,6 +33,7 @@ git clone https://github.com/FornesBorja/interactiveTV.git
 ```
 
 ## Future functionalities
+- **Parental block** You will be able to block a channel.
 - **Save channels** The last channel will be saved even when you refresh.
 
 ## Live Deployment
