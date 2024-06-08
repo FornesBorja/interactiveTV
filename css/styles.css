@@ -38,13 +38,12 @@
 #channel-container {
   position: absolute;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   top: 1em;
   right: 1em;
-  z-index: 1;
   font-size: 3em;
-  color:antiquewhite
+  color: antiquewhite
 }
 
 
@@ -91,6 +90,7 @@
   left: 1em;
   z-index: 1;
 }
+
 #date {
   font-size: 2.5em;
   font-weight: bold;
