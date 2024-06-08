@@ -1,14 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Tiny5&display=swap");
 
 * {
   margin: 0;
   padding: 0;
 }
-
+body {
+  background-color: rgba(226, 226, 226, 1);
+  
+}
 #bottom-screen {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  border-radius: 0em 0em 2em 2em;
 }
 
 .bulb {
@@ -17,7 +21,6 @@
   background-color: rgb(156, 156, 156);
   width: 1em;
   height: 1em;
-
 }
 
 .button {
@@ -28,14 +31,22 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  cursor: pointer;
+  margin: auto;
+  width: 2em;
+  height: 2em;
 }
 
 .channel-button {
   background-color: rgb(34, 53, 53);
 }
+#container{
+  width: 100vw;
+  height: 100vh;
+  overflow-y:hidden; 
+  overflow-x: hidden; 
 
-#channel-container {
+}
+#data-container {
   position: absolute;
   display: flex;
   align-items: flex-start;
@@ -43,9 +54,8 @@
   top: 1em;
   right: 1em;
   font-size: 3em;
-  color: antiquewhite
+  color: antiquewhite;
 }
-
 
 .channel-direction {
   background-color: rgb(54, 52, 52);
@@ -67,16 +77,6 @@
   width: 1em;
   border-radius: 50%;
 }
-
-#container {
-  background-color: rgba(226, 226, 226, 1);
-  height: 100vh;
-  width: 100vw;
-  display: grid;
-  grid-template-columns: 4fr 1fr;
-  grid-gap: 1em;
-}
-
 
 #container-volume-bar,
 #date-container {
@@ -108,13 +108,10 @@
 #info {
   background-color: rgb(29, 147, 151);
   font-weight: bold;
-
 }
 
 .off {
   background-color: black;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .on {
@@ -149,15 +146,19 @@
   width: 60%;
   height: 70%;
   background-color: grey;
-  border: 2em solid grey;
+  border: 0.6em solid grey;
   border-radius: 1em;
   box-shadow: 1em 0.5em 0.9em -0.1em rgba(0, 0, 0, 0.5);
-  display: grid;
-  grid-gap: 2em;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; 
 }
-
+#remote .row {
+  flex: 1; 
+  display: flex;
+  align-items: center;
+  margin-bottom: 0; 
+}
 #remote-container {
   display: flex;
   align-items: center;
@@ -170,6 +171,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
+  position: relative;
 }
 
 .screen-border {
@@ -193,10 +195,13 @@
   font-weight: 400;
   font-style: normal;
 }
-
+#top-screen {
+  border-radius: 2em 2em 0em 0em;
+}
 #tv-on-light {
   height: 2em;
   width: 2em;
+  border-radius: 0em 0em 2em 0em;
 }
 
 #tv-power-button {
@@ -206,6 +211,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
+  cursor: pointer;
 }
 
 #volume {
@@ -230,41 +237,52 @@
   background-color: rgb(65, 16, 16);
 }
 
-#main-screen {
-  position: relative;
+#info {
+  background-color: rgb(29, 147, 151);
+  font-weight: bold;
 }
 
-
-
+#circle {
+  background-color: antiquewhite;
+  height: 1em;
+  width: 1em;
+  border-radius: 50%;
+}
 @media (max-width: 768px) {
-  #container {
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr 1fr;
+  .button {
+    height: 1.5em;
   }
-
-  #remote {
-    width: 20%;
-    height: 70%;
-    grid-gap: 0.3em;
-    border: 1.5em solid grey;
+  #data-container {
+    font-size: 1em;
   }
-
   #date {
     font-size: 1em;
   }
 
-  #channel-container {
-    font-size: 1em;
+  #remote {
+    height: 90%;
+    border: 1.5em solid grey;
   }
-
   #volume {
     height: 10em;
     width: 1em;
-
   }
 
   #volume-bar {
     height: 11em;
     width: 2em;
   }
+}
+@media (max-width: 1016px) and (min-width: 762px) {
+  #remote-container {
+      
+      margin-top: 1em;
+      padding: 1.2px;     
+  }
+  #remote {
+      height: auto;     
+      max-height: 30em; 
+      overflow-y: auto;  
+  }
+
 }

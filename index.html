@@ -11,107 +11,120 @@
 </head>
 
 <body>
-    <div id="container">
-        <div id="television-container">
-            <div id="chasis-tv">
-                <div class="screen-border">
-                    <img id=logo src="./imgs/logo-png.png" alt="Logo samsung">
-                </div>
+    <div id="container" class="container-fluid">
+        <div class="row">
+            <div id="television-container" class="col-lg-9 col-sm-12 order-sm-1 mt-5">
+                <div id="chasis-tv">
+                    <div id="top-screen" class="screen-border">
+                        <img id=logo src="./imgs/logo-png.png" alt="Logo samsung">
+                    </div>
 
-                <div id="main-screen" class=" ratio ratio-16x9">
-                    <video id="screen" class="off" width="100%" autoplay loop height="100%">
-                        <source id=screen-src src="" type="video/mp4">
-                    </video>
-                    <div id="container-volume-bar">
-                        <div id="volume-bar">
-                            <div id="volume"></div>
+                    <div id="main-screen" class="ratio ratio-16x9">
+                        <video id="screen" class="off" width="100%" autoplay loop height="100%">
+                            <source id=screen-src src="" type="video/mp4">
+                        </video>
+                        <div id="container-volume-bar">
+                            <div id="volume-bar">
+                                <div id="volume"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div id="date-container">
-                        <div id="date" class="tiny5-regular"></div>
-                    </div>
-                    <div id="channel-container" class="tiny5-regular"></div>
+                        <div id="date-container">
+                            <div id="date" class="tiny5-regular"></div>
+                        </div>
+                        <div id="data-container" class="tiny5-regular"></div>
 
-                </div>
-                <div id="bottom-screen" class="screen-border">
-                    <div id="tv-power-button">
-                        <img class=on-off src="./imgs/on.png" alt="On/Off button">
                     </div>
-                    <div id="tv-on-light" class="light off"></div>
+                    <div id="bottom-screen" class="screen-border">
+                        <div id="tv-power-button">
+                            <img class=on-off src="./imgs/on.png" alt="On/Off button">
+                        </div>
+                        <div id="tv-on-light" class="light off"></div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div id="remote-container">
-            <div id="remote">
-                <div></div>
-                <div id="remote-on-light">
-                    <div class="bulb light "></div>
-                </div>
-                <div id="remote-power-button" class="button">
-                    <img class=on-off src="./imgs/on.png" alt="On/Off button">
-                </div>
-                <div></div>
-                <div id="up-button" class="button">
-                    <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-caret-up-fill" viewBox="0 0 16 16">
-                            <path
-                                d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
-                        </svg></div>
-                </div>
-                <div></div>
-                <div id="left-button" class="button">
-                    <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-caret-left-fill" viewBox="0 0 16 16">
-                            <path
-                                d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
-                        </svg></div>
-                </div>
-                <div id="center-button" class="button">
-                    <div id="circle"></div>
-                </div>
-                <div id="right-button" class="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                        fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                        <path
-                            d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                    </svg></div>
-                <div id=volume-button-up class="volume button">V+</div>
-                <div id="down-button" class="button">
-                    <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                        </svg></div>
-                </div>
-                <div class="channel-direction button">
-                    <div id="channel-button-more">CH+</div>
-                </div>
-                <div id=volume-button-down class="volume button">
-                    <div>V-</div>
-                </div>
-                <div id=info class="button">
-                    <div>i</div>
-                </div>
-                <div class="channel-direction button">
-                    <div id="channel-button-less">CH-</div>
-                </div>
-                <div class="channel-button button">
-                    <div>1</div>
-                </div>
-                <div class="channel-button button">
-                    <div>2</div>
-                </div>
-                <div class="channel-button button">
-                    <div>3</div>
-                </div>
-                <div class="channel-button button">
-                    <div>4</div>
-                </div>
-                <div class="channel-button button">
-                    <div>5</div>
-                </div>
-                <div class="channel-button button">
-                    <div>6</div>
+            <div id="remote-container" class="col-lg-3 col-sm-12 order-sm-2 mt-5" >
+                <div id="remote" class="container">
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div id="remote-on-light" class="col-4 d-flex justify-content-center align-items-center">
+                            <div class="bulb light"></div>
+                        </div>
+                        <div id="remote-power-button"
+                            class="button col-4 d-flex justify-content-center align-items-center">
+                            <img class="on-off" src="./imgs/on.png" alt="On/Off button">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div id="up-button" class="button col-4">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="col-4"></div>
+                    </div>
+                    <div class="row">
+                        <div id="left-button" class="button col-4 d-flex justify-content-center align-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+                            </svg>
+                        </div>
+                        <div id="center-button" class="button col-4 d-flex justify-content-center align-items-center">
+                            <div id="circle"></div>
+                        </div>
+                        <div id="right-button" class="button col-4 d-flex justify-content-center align-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="volume-button-up"
+                            class="volume button col-4 d-flex justify-content-center align-items-center">V+</div>
+                        <div id="down-button" class="button col-4 d-flex justify-content-center align-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                            </svg>
+                        </div>
+                        <div id="channel-button-more"
+                            class="channel-direction button col-4 d-flex justify-content-center align-items-center">CH+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="volume-button-down"
+                            class="volume button col-4 d-flex justify-content-center align-items-center">V-</div>
+                        <div id="info" class="button col-4 d-flex justify-content-center align-items-center">i</div>
+                        <div id="channel-button-less"
+                            class="channel-direction button col-4 d-flex justify-content-center align-items-center">CH-
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="channel-button button col-4 d-flex justify-content-center align-items-center">1
+                        </div>
+                        <div class="channel-button button col-4 d-flex justify-content-center align-items-center">2
+                        </div>
+                        <div class="channel-button button col-4 d-flex justify-content-center align-items-center">3
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="channel-button button col-4 d-flex justify-content-center align-items-center">4
+                        </div>
+                        <div class="channel-button button col-4 d-flex justify-content-center align-items-center">5
+                        </div>
+                        <div class="channel-button button col-4 d-flex justify-content-center align-items-center">6
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
