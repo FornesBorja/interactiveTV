@@ -4,11 +4,15 @@
   margin: 0;
   padding: 0;
 }
-
+body {
+  background-color: rgba(226, 226, 226, 1);
+  
+}
 #bottom-screen {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  border-radius: 0em 0em 2em 2em;
 }
 
 .bulb {
@@ -27,15 +31,22 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  cursor: pointer;
-  height: 3em;
+  margin: auto;
+  width: 2em;
+  height: 2em;
 }
 
 .channel-button {
   background-color: rgb(34, 53, 53);
 }
+#container{
+  width: 100vw;
+  height: 100vh;
+  overflow-y:hidden; 
+  overflow-x: hidden; 
 
-#channel-container {
+}
+#data-container {
   position: absolute;
   display: flex;
   align-items: flex-start;
@@ -65,12 +76,6 @@
   height: 1em;
   width: 1em;
   border-radius: 50%;
-}
-
-#container {
-  background-color: rgba(226, 226, 226, 1);
-  height: 100vh;
-  width: 100vw;
 }
 
 #container-volume-bar,
@@ -146,13 +151,13 @@
   box-shadow: 1em 0.5em 0.9em -0.1em rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly; /* Distribute rows evenly */
+  justify-content: space-evenly; 
 }
 #remote .row {
-  flex: 1; /* Each row takes equal height */
+  flex: 1; 
   display: flex;
   align-items: center;
-  margin-bottom: 0; /* Remove bottom margin for rows */
+  margin-bottom: 0; 
 }
 #remote-container {
   display: flex;
@@ -190,10 +195,13 @@
   font-weight: 400;
   font-style: normal;
 }
-
+#top-screen {
+  border-radius: 2em 2em 0em 0em;
+}
 #tv-on-light {
   height: 2em;
   width: 2em;
+  border-radius: 0em 0em 2em 0em;
 }
 
 #tv-power-button {
@@ -203,6 +211,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
+  cursor: pointer;
 }
 
 #volume {
@@ -239,11 +249,10 @@
   border-radius: 50%;
 }
 @media (max-width: 768px) {
-  .button
-  {
+  .button {
     height: 1.5em;
   }
-  #channel-container {
+  #data-container {
     font-size: 1em;
   }
   #date {
@@ -251,9 +260,7 @@
   }
 
   #remote {
-    width: 50%;
-    height: 80%;
-    grid-gap: 0.3em;
+    height: 90%;
     border: 1.5em solid grey;
   }
   #volume {
@@ -265,4 +272,17 @@
     height: 11em;
     width: 2em;
   }
+}
+@media (max-width: 1016px) and (min-width: 762px) {
+  #remote-container {
+      
+      margin-top: 1em;
+      padding: 1.2px;     
+  }
+  #remote {
+      height: auto;     
+      max-height: 30em; 
+      overflow-y: auto;  
+  }
+
 }

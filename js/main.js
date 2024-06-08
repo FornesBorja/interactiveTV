@@ -10,7 +10,7 @@ const volumeUpButton = document.getElementById("volume-button-up");
 const volumeDownButton = document.getElementById("volume-button-down");
 const tvPowerButton = document.getElementById("tv-power-button");
 const infoButton = document.getElementById("info");
-const channelContainer = document.getElementById("channel-container");
+const dataContainer = document.getElementById("data-container");
 const channelMoreButton = document.getElementById("channel-button-more");
 const channelLessButton = document.getElementById("channel-button-less");
 
@@ -97,9 +97,9 @@ const showDate = () => {
 
 const showChannel = () => {
     if (lastChannelIndex !== -1) {
-        channelContainer.innerHTML = `Channel: ${lastChannelIndex + 1}`;
+        dataContainer.innerHTML = `Channel: ${lastChannelIndex + 1}`;
         setTimeout(() => {
-            channelContainer.innerHTML = ` `;
+            dataContainer.innerHTML = ` `;
         }, 3000);
     }
 };
@@ -107,6 +107,10 @@ const showDateAndChannel = () => {
     showDate();
     showChannel();
 };
+
+powerButton.addEventListener("click", togglePower);
+tvPowerButton.addEventListener("click", togglePower);
+
 
 for (let i = 0; i < channelsArray.length; i++) {
     channelsArray[i].addEventListener("click", () => {
@@ -142,8 +146,6 @@ volumeDownButton.addEventListener("click", () => {
     }
 });
 
-powerButton.addEventListener("click", togglePower);
-tvPowerButton.addEventListener("click", togglePower);
 
 infoButton.addEventListener("click", () => {
     if (isOn) {

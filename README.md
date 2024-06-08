@@ -8,6 +8,7 @@
 - <a href="#future-functionalities">Future functionalities 📺</a>
 - <a href="#live-deployment">Live Deployment 🌐</a>
 - <a href="#structure">Structure 🏗️</a>
+- <a href="#to-improve">To improve ⚠️</a>
 - <a href="#author">Author ✒️</a>
 
 
@@ -43,6 +44,10 @@ git clone https://github.com/FornesBorja/interactiveTV.git
 ## Structure
 
 <img align="center" alt="logo" width="500" src="https://i.gyazo.com/c5ad71ec56cd92f58aed9501ba01a633.png">
+
+## To improve
+- **Better commit naming**
+
 
 ## Author
 
