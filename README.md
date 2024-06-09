@@ -23,6 +23,8 @@
 
 - **Last channel saved** The last channel will be saved for when you turn on the TV again. This does not apply when you refresh the page.
 
+- **Buttons are blocked if TV is off**
+
 - **Responsive Design:** The website adjusts to different screen sizes.
 
 ## Instalation
@@ -36,6 +38,8 @@ git clone https://github.com/FornesBorja/interactiveTV.git
 ## Future functionalities
 - **Parental block** You will be able to block a channel.
 - **Save channels** The last channel will be saved even when you refresh.
+- **More menu options** Enable functionality for the menu options that are currently not working like channel blocking. This feature will allow users to block the channel of their choice, the settings and Other.
+
 
 ## Live Deployment
 
@@ -46,8 +50,9 @@ git clone https://github.com/FornesBorja/interactiveTV.git
 <img align="center" alt="logo" width="500" src="https://i.gyazo.com/c5ad71ec56cd92f58aed9501ba01a633.png">
 
 ## To improve
-- **Better commit naming**
-
+🔲 Increasing the volume takes the audio out of mute.
+🔲 Better controller layout.
+🔲 Easier and more intuitive menu, curretly you have only 2 options if you want to exit menu: turn off the tv or press exit.
 
 ## Author
 
