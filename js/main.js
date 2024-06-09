@@ -23,14 +23,14 @@ const rightButton = document.getElementById("right-button");
 let arrayLights = Array.from(lightElements);
 let channelsArray = Array.from(channelButtons);
 const items = [];
-const textItems = ["Block channel", "mute", "exit"];
+const textItems = ["Block channel", "Mute", "Config", "Other", "Exit"];
 
 let isOn = false,
   menuCreated = false;
 let lastChannelIndex = -1,
   volumeLevel = 0,
   activeIndex = 0;
-  let date = new Date();
+let date = new Date();
 
 //Switch on and off the TV
 const togglePower = () => {
@@ -92,25 +92,26 @@ const volumeShow = () => {
 
 //Makes you move through the menu
 const handleNavigation = (event) => {
-  infrared();
-  let newIndex = activeIndex;
-  console.log(event.target.id);
-  switch (event.target.id) {
-    case "up-button":
-      if (newIndex - 3 >= 0) newIndex -= 3;
-      break;
-    case "down-button":
-      if (newIndex + 3 < items.length) newIndex += 3;
-      break;
-    case "left-button":
-      if (newIndex % 3 > 0) newIndex -= 1;
-      break;
-    case "right-button":
-      if (newIndex % 3 < 2) newIndex += 1;
-      break;
-  }
-  if (newIndex !== activeIndex) {
-    updateActiveItem(newIndex);
+  if (isOn) {
+    infrared();
+    let newIndex = activeIndex;
+    switch (event.target.id) {
+      case "up-button":
+        if (newIndex - 3 >= 0) newIndex -= 3;
+        break;
+      case "down-button":
+        if (newIndex + 3 < items.length) newIndex += 3;
+        break;
+      case "left-button":
+        if (newIndex % 3 > 0) newIndex -= 1;
+        break;
+      case "right-button":
+        if (newIndex % 3 < 2) newIndex += 1;
+        break;
+    }
+    if (newIndex !== activeIndex) {
+      updateActiveItem(newIndex);
+    }
   }
 };
 
@@ -120,8 +121,14 @@ const executeMenuItemAction = (index) => {
     case "Block channel":
       console.log("Block channel not implemented");
       break;
-    case "mute":
+    case "Mute":
       mute();
+      break;
+    case "Config":
+      console.log("Config not implemented");
+      break;
+    case "Other":
+      console.log("Other not implemented");
       break;
     case "exit":
       exit();
@@ -137,16 +144,19 @@ const exit = () => {
   }
   items.length = 0;
   activeIndex = 0;
-  menuCreated = false; // Restablecer el estado del menú
+  menuCreated = false;
 };
+//Updates the active item we have selected
 const updateActiveItem = (newIndex) => {
   items[activeIndex].classList.remove("active");
   activeIndex = newIndex;
   items[activeIndex].classList.add("active");
 };
+
 const mute = () => {
   screen.muted = !screen.muted;
 };
+
 const updateVolume = () => {
   screen.volume = volumeLevel / 100;
   volumeBarValue.style.height = volumeLevel + "%";
@@ -188,6 +198,7 @@ for (let i = 0; i < channelsArray.length; i++) {
       screen.src = `./videos/channel-${i + 1}.mp4`;
       screen.play();
       infrared();
+      showChannel();
     }
   });
 }
@@ -215,7 +226,7 @@ volumeDownButton.addEventListener("click", () => {
 
 infoButton.addEventListener("click", () => {
   if (isOn) {
-    showChannelAndDate()
+    showChannelAndDate();
     infrared();
   }
 });
