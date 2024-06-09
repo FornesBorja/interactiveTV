@@ -1,8 +1,10 @@
+// Element Selectors
 const powerButton = document.getElementById("remote-power-button");
 const lightElements = document.getElementsByClassName("light");
 const lightTV = document.getElementById("tv-on-light");
 const dataContainer = document.getElementById("data");
 const screen = document.getElementById("screen");
+const mainScreen = document.getElementById("main-screen");
 const channelButtons = document.getElementsByClassName("channel-button");
 const volumeBar = document.getElementById("volume-bar");
 const volumeBarValue = document.getElementById("volume");
@@ -40,6 +42,7 @@ const togglePower = () => {
   if (isOn) {
     screen.src = "./videos/static.mp4";
     screen.play();
+    mainScreen.classList.remove("off");
     if (lastChannelIndex !== -1) {
       setTimeout(() => {
         screen.src = `./videos/channel-${lastChannelIndex + 1}.mp4`;
@@ -50,11 +53,11 @@ const togglePower = () => {
   } else {
     screen.pause();
     screen.src = "";
-    screen.style.backgroundColor = "black";
     exit();
+    mainScreen.classList.add("off");
   }
 };
-
+// Change TV Channel
 const changeChannel = (increment) => {
   if (isOn) {
     lastChannelIndex += increment;
@@ -130,7 +133,7 @@ const executeMenuItemAction = (index) => {
     case "Other":
       console.log("Other not implemented");
       break;
-    case "exit":
+    case "Exit":
       exit();
       break;
     default:
@@ -152,7 +155,7 @@ const updateActiveItem = (newIndex) => {
   activeIndex = newIndex;
   items[activeIndex].classList.add("active");
 };
-
+//Mutes the screen
 const mute = () => {
   screen.muted = !screen.muted;
 };
@@ -188,6 +191,8 @@ const showChannelAndDate = () => {
     }, 3000);
   }
 };
+
+//Event listeners
 powerButton.addEventListener("click", togglePower);
 tvPowerButton.addEventListener("click", togglePower);
 
@@ -206,6 +211,7 @@ volumeUpButton.addEventListener("click", () => {
   if (isOn) {
     if (volumeLevel < 100) {
       volumeLevel += 10;
+      screen.muted = false;
       updateVolume();
     } else if ((volumeLevel = 100)) {
       updateVolume();
