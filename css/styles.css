@@ -6,7 +6,6 @@
 }
 body {
   background-color: rgba(226, 226, 226, 1);
-  
 }
 #bottom-screen {
   display: flex;
@@ -39,12 +38,12 @@ body {
 .channel-button {
   background-color: rgb(34, 53, 53);
 }
-#container{
+
+#container {
   width: 100vw;
   height: 100vh;
-  overflow-y:hidden; 
-  overflow-x: hidden; 
-
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 #data-container {
   position: absolute;
@@ -69,13 +68,6 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
-
-#circle {
-  background-color: antiquewhite;
-  height: 1em;
-  width: 1em;
-  border-radius: 50%;
 }
 
 #container-volume-bar,
@@ -127,6 +119,28 @@ body {
   width: auto;
 }
 
+.menu {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+  margin-top: 20px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.menu-item.active {
+  background-color: #00f;
+  color: #fff;
+}
 .on-off {
   width: 0.8em;
   height: 0.8em;
@@ -151,13 +165,13 @@ body {
   box-shadow: 1em 0.5em 0.9em -0.1em rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly; 
+  justify-content: space-evenly;
 }
 #remote .row {
-  flex: 1; 
+  flex: 1;
   display: flex;
   align-items: center;
-  margin-bottom: 0; 
+  margin-bottom: 0;
 }
 #remote-container {
   display: flex;
@@ -258,7 +272,9 @@ body {
   #date {
     font-size: 1em;
   }
-
+  #volume-bar {
+    height: 15em;
+  }
   #remote {
     height: 90%;
     border: 1.5em solid grey;
@@ -275,14 +291,12 @@ body {
 }
 @media (max-width: 1016px) and (min-width: 762px) {
   #remote-container {
-      
-      margin-top: 1em;
-      padding: 1.2px;     
+    margin-top: 1em;
+    padding: 1.2px;
   }
   #remote {
-      height: auto;     
-      max-height: 30em; 
-      overflow-y: auto;  
+    height: auto;
+    max-height: 30em;
+    overflow-y: auto;
   }
-
 }
