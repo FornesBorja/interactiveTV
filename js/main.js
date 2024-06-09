@@ -33,7 +33,7 @@ let passwordInput = "";
 
 let isOn = false,
   menuCreated = false;
-let lastChannelIndex = -1,
+let lastChannelIndex = -2,
   volumeLevel = 0,
   activeIndex = 0;
 let date = new Date();
@@ -62,19 +62,18 @@ const togglePower = () => {
   }
 };
 
-// Fuction to block/unblock channels
+// Fuction to block channels
 const blockCurrentChannel = () => {
   if (lastChannelIndex === blockedChannelIndex) {
     exit();
     const item = document.createElement("div");
-    item.className = "menu-item";
+    item.className = "menu-item-info";
     item.textContent = "This channel is ALREADY blocked";
-    screen.src = ""
     menu.appendChild(item);
   } else {
     exit();
     const item = document.createElement("div");
-    item.className = "menu-item";
+    item.className = "menu-item-info";
     item.textContent = "This channel is blocked";
     screen.src = ""
     menu.appendChild(item);
@@ -86,14 +85,14 @@ const blockCurrentChannel = () => {
 
 };
 
-// Función para desbloquear el canal
+// Function to unblock the channel
 const unblockChannel = () => {
   if (passwordInput === BLOCKED_CHANNEL_PASSWORD) {
     isChannelBlocked = false;
     blockedChannelIndex = -1;
     passwordInput = "";
     const item = document.createElement("div");
-    item.className = "menu-item";
+    item.className = "menu-item-info";
     item.textContent = "Channel unblocked";
     screen.src = ""
     menu.appendChild(item);
@@ -105,7 +104,7 @@ const unblockChannel = () => {
     screen.play();
   } else {
     const item = document.createElement("div");
-    item.className = "menu-item";
+    item.className = "menu-item-info";
     item.textContent = "Incorrect password";
     screen.src = "";
     menu.appendChild(item);
@@ -129,7 +128,7 @@ const changeChannel = (increment) => {
     }
     if (newChannelIndex === blockedChannelIndex) {
       const item = document.createElement("div");
-      item.className = "menu-item";
+      item.className = "menu-item-info";
       item.textContent = "This channel is blocked";
       screen.src = ""
       menu.appendChild(item);
@@ -282,7 +281,7 @@ for (let i = 0; i < channelsArray.length; i++) {
         lastChannelIndex = i;
         if (lastChannelIndex === blockedChannelIndex) {
           const item = document.createElement("div");
-          item.className = "menu-item";
+          item.className = "menu-item-info";
           item.textContent = "Channel blocked. Enter password using channel buttons";
           screen.src = "";
           menu.appendChild(item);

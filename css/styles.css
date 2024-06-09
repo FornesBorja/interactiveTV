@@ -4,16 +4,19 @@
   margin: 0;
   padding: 0;
 }
-.blocked-channel{
+
+.blocked-channel {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 3em;
   color: #fff;
 }
+
 body {
   background-color: rgba(226, 226, 226, 1);
 }
+
 #bottom-screen {
   display: flex;
   align-items: center;
@@ -53,6 +56,7 @@ body {
   overflow-y: hidden;
   overflow-x: hidden;
 }
+
 #data-container {
   position: absolute;
   display: flex;
@@ -122,7 +126,7 @@ body {
   overflow: hidden;
 }
 
-.menu-item {
+.menu-item,.menu-item-info {
   display: flex;
   align-items: center;
   padding: 2em;
@@ -131,13 +135,13 @@ body {
 
   background-color: #f0f0f0;
   border: 0.1em solid #ccc;
-  cursor: pointer;
 }
 
 .menu-item.active {
   background-color: #00f;
   color: #fff;
 }
+
 .on-off {
   width: 0.8em;
   height: 0.8em;
@@ -164,12 +168,14 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
 }
+
 #remote .row {
   flex: 1;
   display: flex;
   align-items: center;
   margin-bottom: 0;
 }
+
 #remote-container {
   display: flex;
   align-items: center;
@@ -185,6 +191,7 @@ body {
   position: relative;
   background-color: black;
 }
+
 .screen-border {
   height: 2em;
   width: 100%;
@@ -193,9 +200,11 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 #main-screen.off {
   animation: turnOff 3s forwards;
 }
+
 #television-container {
   display: flex;
   align-items: center;
@@ -208,9 +217,11 @@ body {
   font-weight: 400;
   font-style: normal;
 }
+
 #top-screen {
   border-radius: 2em 2em 0em 0em;
 }
+
 #tv-on-light {
   height: 2em;
   width: 2em;
@@ -244,12 +255,14 @@ body {
   justify-content: center;
   visibility: hidden;
 }
+
 #volume-bar-container {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .volume {
   background-color: rgb(65, 16, 16);
 }
@@ -265,27 +278,39 @@ body {
   width: 1em;
   border-radius: 50%;
 }
+
 @media (max-width: 768px) {
   .button {
     height: 1.5em;
   }
+
   #data-container {
     font-size: 0.7em;
   }
+
   .menu-item {
     width: 2em;
     height: 1em;
     padding: 1.5em;
     font-size: 0.9em;
   }
+  .menu-item-info {
+    width: 10em;
+    height: 3em;
+    padding: 1.5em;
+    font-size: 0.6em;
+  }
+
   #volume-bar {
     height: 7em;
     width: 1.5em;
   }
+
   #remote {
     height: 90%;
     border: 1.5em solid grey;
   }
+
   #volume {
     height: 10em;
     width: 1em;
@@ -296,28 +321,33 @@ body {
     width: 0.9em;
   }
 }
+
 @media (max-width: 1016px) and (min-width: 762px) {
   #remote-container {
     margin-top: 1em;
     padding: 0.1em;
   }
+
   #remote {
     height: auto;
     max-height: 30em;
     overflow-y: auto;
   }
 }
+
 @keyframes turnOff {
   0% {
     transform: scale(1);
     opacity: 1;
     background-color: rgb(29, 28, 28);
   }
+
   50% {
     transform: scale(0.5, 0.1);
     opacity: 0.5;
     background-color: rgb(29, 28, 28);
   }
+
   100% {
     transform: scale(0);
     opacity: 0;
