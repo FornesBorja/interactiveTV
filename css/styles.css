@@ -4,6 +4,13 @@
   margin: 0;
   padding: 0;
 }
+.blocked-channel{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+  color: #fff;
+}
 body {
   background-color: rgba(226, 226, 226, 1);
 }
@@ -231,13 +238,18 @@ body {
   background-color: white;
   height: 20em;
   width: 3em;
-  border: 0.4em solid white;
+  border: 0.2em solid white;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   visibility: hidden;
 }
-
+#volume-bar-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .volume {
   background-color: rgb(65, 16, 16);
 }
@@ -267,7 +279,8 @@ body {
     font-size: 0.9em;
   }
   #volume-bar {
-    height: 15em;
+    height: 7em;
+    width: 1.5em;
   }
   #remote {
     height: 90%;
@@ -279,8 +292,8 @@ body {
   }
 
   #volume-bar {
-    height: 11em;
-    width: 2em;
+    height: 7em;
+    width: 0.9em;
   }
 }
 @media (max-width: 1016px) and (min-width: 762px) {

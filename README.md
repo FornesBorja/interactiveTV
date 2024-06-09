@@ -51,7 +51,7 @@ git clone https://github.com/FornesBorja/interactiveTV.git
 <img align="center" alt="logo" width="500" src="https://i.gyazo.com/c5ad71ec56cd92f58aed9501ba01a633.png">
 
 ## To improve
-🔲 Better controller layout.
+🔲 Better controller layout. <br/>
 🔲 Easier and more intuitive menu. Currently, you have only 2 options if you want to exit the menu: turn off the TV or press exit.
 
 ## Author

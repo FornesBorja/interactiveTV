@@ -27,6 +27,10 @@ let channelsArray = Array.from(channelButtons);
 const items = [];
 const textItems = ["Block channel", "Mute", "Config", "Other", "Exit"];
 
+let blockedChannelIndex = -1;
+const BLOCKED_CHANNEL_PASSWORD = "222";
+let passwordInput = "";
+
 let isOn = false,
   menuCreated = false;
 let lastChannelIndex = -1,
@@ -57,20 +61,90 @@ const togglePower = () => {
     mainScreen.classList.add("off");
   }
 };
-// Change TV Channel
+
+// Fuction to block/unblock channels
+const blockCurrentChannel = () => {
+  if (lastChannelIndex === blockedChannelIndex) {
+    exit();
+    const item = document.createElement("div");
+    item.className = "menu-item";
+    item.textContent = "This channel is ALREADY blocked";
+    screen.src = ""
+    menu.appendChild(item);
+  } else {
+    exit();
+    const item = document.createElement("div");
+    item.className = "menu-item";
+    item.textContent = "This channel is blocked";
+    screen.src = ""
+    menu.appendChild(item);
+    blockedChannelIndex = lastChannelIndex;
+  }
+  setTimeout(() => {
+    exit();
+  }, 2000);
+
+};
+
+// Función para desbloquear el canal
+const unblockChannel = () => {
+  if (passwordInput === BLOCKED_CHANNEL_PASSWORD) {
+    isChannelBlocked = false;
+    blockedChannelIndex = -1;
+    passwordInput = "";
+    const item = document.createElement("div");
+    item.className = "menu-item";
+    item.textContent = "Channel unblocked";
+    screen.src = ""
+    menu.appendChild(item);
+    setTimeout(() => {
+      exit();
+    }, 2000);
+    // Play the current channel
+    screen.src = `./videos/channel-${lastChannelIndex + 1}.mp4`;
+    screen.play();
+  } else {
+    const item = document.createElement("div");
+    item.className = "menu-item";
+    item.textContent = "Incorrect password";
+    screen.src = "";
+    menu.appendChild(item);
+    setTimeout(() => {
+      exit();
+    }, 2000);
+  }
+};
+
+const checkPassword = (input) => {
+  return input === BLOCKED_CHANNEL_PASSWORD;
+};
+
 const changeChannel = (increment) => {
   if (isOn) {
-    lastChannelIndex += increment;
-    if (lastChannelIndex < 0) {
-      lastChannelIndex = channelsArray.length - 1;
-    } else if (lastChannelIndex >= channelsArray.length) {
-      lastChannelIndex = 0;
+    let newChannelIndex = lastChannelIndex + increment;
+    if (newChannelIndex < 0) {
+      newChannelIndex = channelsArray.length - 1;
+    } else if (newChannelIndex >= channelsArray.length) {
+      newChannelIndex = 0;
     }
-    const newVideoSrc = `./videos/channel-${lastChannelIndex + 1}.mp4`;
-    screen.src = newVideoSrc;
-    screen.play();
-    infrared();
-    showChannel();
+    if (newChannelIndex === blockedChannelIndex) {
+      const item = document.createElement("div");
+      item.className = "menu-item";
+      item.textContent = "This channel is blocked";
+      screen.src = ""
+      menu.appendChild(item);
+      setTimeout(() => {
+        exit();
+      }, 2000);
+      return;
+    } else {
+      lastChannelIndex = newChannelIndex;
+      const newVideoSrc = `./videos/channel-${newChannelIndex + 1}.mp4`;
+      screen.src = newVideoSrc;
+      screen.play();
+      infrared();
+      showChannel();
+    }
   }
 };
 
@@ -122,7 +196,7 @@ const handleNavigation = (event) => {
 const executeMenuItemAction = (index) => {
   switch (textItems[index]) {
     case "Block channel":
-      console.log("Block channel not implemented");
+      blockCurrentChannel();
       break;
     case "Mute":
       mute();
@@ -199,14 +273,33 @@ tvPowerButton.addEventListener("click", togglePower);
 for (let i = 0; i < channelsArray.length; i++) {
   channelsArray[i].addEventListener("click", () => {
     if (isOn) {
-      lastChannelIndex = i;
-      screen.src = `./videos/channel-${i + 1}.mp4`;
-      screen.play();
-      infrared();
-      showChannel();
+      if (lastChannelIndex === blockedChannelIndex) {
+        passwordInput += (i + 1).toString();
+        if (passwordInput.length === 3) {
+          unblockChannel();
+        }
+      } else {
+        lastChannelIndex = i;
+        if (lastChannelIndex === blockedChannelIndex) {
+          const item = document.createElement("div");
+          item.className = "menu-item";
+          item.textContent = "Channel blocked. Enter password using channel buttons";
+          screen.src = "";
+          menu.appendChild(item);
+          setTimeout(() => {
+            exit();
+          }, 2000);
+          return;
+        }
+        screen.src = `./videos/channel-${i + 1}.mp4`;
+        screen.play();
+        infrared();
+        showChannel();
+      }
     }
   });
 }
+
 volumeUpButton.addEventListener("click", () => {
   if (isOn) {
     if (volumeLevel < 100) {
